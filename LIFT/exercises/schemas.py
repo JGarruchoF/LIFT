@@ -19,13 +19,17 @@ class EquipmentSchema(ModelSchema):
         model_fields = ['id', 'name']
 
 class ExerciseSchema(ModelSchema):
+    target: Optional[MuscleSchema]
+    equipment: Optional[EquipmentSchema]
     class Config:
         model = Exercise
-        model_fields = ['id', 'name','target','equipment','gif_url']
+        model_fields = ['id', 'name','gif_url'] 
 
 class CreateExerciseSchema(ModelSchema):
     equipment_name: Optional[str] = None
     class Config:
         model = Exercise 
         model_fields = ['name','target','gif_url']
+        model_fields_optional = ['gif_url']
+
 
