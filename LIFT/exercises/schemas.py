@@ -1,12 +1,7 @@
-from ninja import Schema, ModelSchema
+from ninja import ModelSchema
 from typing import Optional
 
-
-
 from exercises.models import Muscle,Equipment,Exercise
-
-class ErrorSchema(Schema):
-    error: str
 
 class MuscleSchema(ModelSchema):
     class Config:

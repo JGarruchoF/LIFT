@@ -1,8 +1,8 @@
 from django.db import models
 
 from base.models import TimeStampedModel
-from users.models import User
 from exercises.models import Exercise
+from users.models import User
 
 class TrainingSession(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sessions")

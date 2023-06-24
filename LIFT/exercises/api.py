@@ -1,14 +1,16 @@
 from typing import List
 
-from django.shortcuts import get_object_or_404
 from django.db import IntegrityError
+from django.shortcuts import get_object_or_404
 
 from ninja import Router, Query
 from ninja.pagination import paginate, LimitOffsetPagination
 
+from base.filters import SearchNameFilterSchema
+from base.schemas import ErrorSchema
+from exercises.filters import ExerciseFilterSchema
 from exercises.models import Exercise, Muscle, Equipment
-from exercises.schemas import ExerciseSchema, MuscleSchema, EquipmentSchema, CreateExerciseSchema, ErrorSchema
-from exercises.filters import ExerciseFilterSchema, SearchNameFilterSchema
+from exercises.schemas import ExerciseSchema, MuscleSchema, EquipmentSchema, CreateExerciseSchema
 
 router = Router()
 
