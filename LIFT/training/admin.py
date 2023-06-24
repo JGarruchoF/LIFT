@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from training.models import TrainingSession
+
+
+@admin.register(TrainingSession)
+class TrainingSessionAdmin(admin.ModelAdmin):
+    pass
