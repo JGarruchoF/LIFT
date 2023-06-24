@@ -9,10 +9,17 @@ from django.db import IntegrityError
 # IMPORTS SELF
 from exercises.models import Muscle, Equipment, Exercise
 
-# BODY_PART = 0
+
+# columns: 
+# 0: BODY_PART
+# 1: EQUIPMENT
+# 2: GIFT_URL
+# 3: ID
+# 4: EXERCISE_NAME
+# 5: TARGET
+
 EQUIPMENT = 1
 GIFT_URL = 2
-# ID = 3
 EXERCISE_NAME = 4
 TARGET = 5
 
