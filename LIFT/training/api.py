@@ -4,13 +4,14 @@ from django.shortcuts import get_object_or_404
 
 from ninja import Router, Query
 from ninja.pagination import paginate, LimitOffsetPagination
+from ninja_jwt.authentication import JWTAuth
 
 from base.schemas import ErrorSchema
 from training.filters import TrainingSessionFilterSchema
 from training.models import TrainingSession
 from training.schemas import TrainingSessionSchema
 
-router = Router()
+router = Router(auth=JWTAuth())
 
 @router.get("/", response=List[TrainingSessionSchema])
 @paginate(LimitOffsetPagination) 

@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_extensions',
+    'ninja_extra',
+    'ninja_jwt',
 
     'exercises',
     'training',
