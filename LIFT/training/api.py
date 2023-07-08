@@ -8,7 +8,7 @@ from ninja.pagination import paginate, LimitOffsetPagination
 from base.schemas import ErrorSchema
 from training.filters import TrainingSessionFilterSchema
 from training.models import TrainingSession
-from training.schemas import TrainingSessionSchema, CreateTrainingSessionSchema
+from training.schemas import TrainingSessionSchema
 
 router = Router()
 
@@ -26,7 +26,7 @@ def get_training(request, id):
    return training
 
 @router.post("/", response={200: TrainingSessionSchema, 400: ErrorSchema})
-def create_training(request, item: CreateTrainingSessionSchema):
+def create_training(request):
    user = request.user
    created_item = TrainingSession.objects.create(user=user)
    return created_item

@@ -10,11 +10,6 @@ class TrainingSessionSchema(ModelSchema):
     updated_at: datetime.datetime
     class Config:
         model = TrainingSession
-        model_fields = ['user', 'finished']
-
-class CreateTrainingSessionSchema(ModelSchema):
-    class Config:
-        model = TrainingSession 
-        model_fields = ['user']
+        model_fields = ['id', 'user', 'finished']
 
 
