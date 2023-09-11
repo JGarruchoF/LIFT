@@ -34,7 +34,7 @@ def create_exercise(request, item: CreateExerciseSchema):
         created_item = Exercise.objects.create(name=item.name, target=target, equipment=equipment, gif_url=item.gif_url)
         return created_item
     except IntegrityError:
-        return 400, {"error": "Exercise with this name already exists"}
+        return 400, {"message": "Exercise with this name already exists"}
 
 
 @router.get("/muscles", response=List[MuscleSchema])

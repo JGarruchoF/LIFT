@@ -13,6 +13,11 @@ class EquipmentSchema(ModelSchema):
         model = Equipment 
         model_fields = ['id', 'name']
 
+class BasicExerciseSchema(ModelSchema):
+    class Config:
+        model = Exercise
+        model_fields = ['id', 'name'] 
+
 class ExerciseSchema(ModelSchema):
     target: Optional[MuscleSchema]
     equipment: Optional[EquipmentSchema]
