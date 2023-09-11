@@ -7,7 +7,10 @@ from users.models import User
 class TrainingSession(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sessions")
     finished = models.BooleanField(default=False)
-    duration = models.DurationField(null=True)
+    duration = models.DurationField(blank=True, null=True)
+
+    def __str__(self):
+        return f"[{self.created_at.strftime('%Y-%m-%d %H:%M:%S')}]: {self.user}"
 
 
 class ExerciseSession(TimeStampedModel):
