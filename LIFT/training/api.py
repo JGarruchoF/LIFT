@@ -49,15 +49,12 @@ def add_set(request, training_id, exercise_session_id):
 
 @router.patch("/{training_id}/{exercise_session_id}/{set_id}", response={200: SetSchema, 403: ErrorSchema})
 def update_set(request, training_id, exercise_session_id, set_id, set_data: SetSchemaPatch):
-   breakpoint()
    updated_set = get_object_or_404(
       Set.objects.prefetch_related("exercise_session__training_session__user"),
       pk=set_id, exercise_session=exercise_session_id,
       exercise_session__training_session=training_id,
       exercise_session__training_session__user=request.user,
    )
-   if updated_set.exercise_session.training_session.user.id is not request.user:
-      return 403, {"message": "Forbidden"}
    for field, value in set_data.dict().items():
       setattr(updated_set, field, value)
    updated_set.save()
