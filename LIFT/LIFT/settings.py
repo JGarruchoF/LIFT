@@ -139,3 +139,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # --------------------------------- NINJA API ------------------
 NINJA_PAGINATION_PER_PAGE = 25
+
+
+from datetime import timedelta
+NINJA_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+}
