@@ -84,12 +84,6 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "vue/component-definition-name-casing": ["error", "PascalCase"],
     "vue/component-name-in-template-casing": ["error", "PascalCase"],
-    "vue/component-tags-order": [
-      "error",
-      {
-        order: ["template", "script", "style"],
-      },
-    ],
     "vue/custom-event-name-casing": "error",
     "vue/match-component-file-name": [
       "error",
