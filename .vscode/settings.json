@@ -1,0 +1,34 @@
+{
+    /* Files */
+    "files.exclude": {
+      "**/*.pyc": true,
+      "**/.scannerwork": true,
+      "**/.sonarlint": true,
+      "**/__pycache__": true,
+      "**/.mypy_cache": true
+    },
+    "files.watcherExclude": {
+      "**/.venv/*/**": true
+    },
+    "search.exclude": {
+      "**/.venv": true
+    },
+    /* Linting & formatting */
+    "editor.formatOnSave": false,
+    // ESLint
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "eslint.options": {
+      "extensions": [ ".html", ".js", ".vue" ]
+    },
+    "eslint.validate": ["html", "vue", "javascript"],
+    "eslint.workingDirectories": [
+      "./frontend"
+    ],
+    // Javascript
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features",
+      "editor.formatOnSave": true,
+    },
+  }
