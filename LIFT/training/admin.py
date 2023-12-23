@@ -7,9 +7,11 @@ from training.models import TrainingSession, ExerciseSession, Set
 class TrainingSessionAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(ExerciseSession)
 class ExerciseSessionAdmin(admin.ModelAdmin):
     pass
+
 
 @admin.register(Set)
 class SetAdmin(admin.ModelAdmin):

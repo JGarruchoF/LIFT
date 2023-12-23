@@ -10,7 +10,7 @@ from django.db import IntegrityError
 from exercises.models import Muscle, Equipment, Exercise
 
 
-# columns: 
+# columns:
 # 0: BODY_PART
 # 1: EQUIPMENT
 # 2: GIFT_URL
@@ -24,17 +24,18 @@ EXERCISE_NAME = 4
 TARGET = 5
 
 
-
 class Command(BaseCommand):
     help = "Populate exercises models from .csv file"
 
     def add_arguments(self, parser):
-        parser.add_argument("csv_file", type=str, help='Path to .csv file')
-        parser.add_argument('--clean', action='store_true', help='Clean database before populating')
+        parser.add_argument("csv_file", type=str, help="Path to .csv file")
+        parser.add_argument(
+            "--clean", action="store_true", help="Clean database before populating"
+        )
 
     def handle(self, *args, **options):
-        csv_file = options['csv_file']
-        clean = options['clean']
+        csv_file = options["csv_file"]
+        clean = options["clean"]
 
         if clean:
             Muscle.objects.all().delete()
@@ -58,8 +59,12 @@ class Command(BaseCommand):
                 except Exception as e:
                     print(e)
 
-
-                exercise = Exercise(name=row[EXERCISE_NAME], target=muscle, equipment=equipment, gif_url=row[GIFT_URL])
+                exercise = Exercise(
+                    name=row[EXERCISE_NAME],
+                    target=muscle,
+                    equipment=equipment,
+                    gif_url=row[GIFT_URL],
+                )
                 try:
                     exercise.save()
                 except Exception as e:
