@@ -13,6 +13,7 @@
     "@ionic/vue": "^7.3.3",
     "@ionic/vue-router": "^7.3.3",
     "chart.js": "^4.4.1",
+    "radash": "^11.0.0",
     "vue": "^3.3.4",
     "vue-chartjs": "^5.2.0"
   },
