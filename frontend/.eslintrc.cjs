@@ -109,4 +109,12 @@ module.exports = {
     "vue/no-unused-components": "warn",
     "vue/valid-v-slot": "error",
   },
+  settings: {
+    "import/resolver": {
+      alias: {
+        map: [["@", "./src"]],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
 };
