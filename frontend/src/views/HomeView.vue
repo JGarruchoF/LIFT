@@ -21,12 +21,12 @@
   </IonPage>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { IonPage, IonContent, IonGrid, IonRow, IonCol, IonAvatar, IonCard, IonCardContent } from "@ionic/vue";
 </script>
 
 <script>
-import WeeklySessionsChart from "../components/WeeklySessionsChart.vue";
+import WeeklySessionsChart from "@/components/WeeklySessionsChart.vue";
 
 export default {
   name: "HomeView",

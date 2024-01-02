@@ -2,13 +2,15 @@
   <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from "chart.js";
 import { Bar } from "vue-chartjs";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale);
 
-export default {
+export default defineComponent({
   name: "WeeklySessionsChart",
   components: { Bar },
   data() {
@@ -23,5 +25,5 @@ export default {
       },
     };
   },
-};
+});
 </script>

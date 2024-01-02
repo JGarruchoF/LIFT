@@ -9,13 +9,16 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 SHELL_PLUS = "ipython"
 
-
 AUTH_USER_MODEL = "users.User"
-
-from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,13 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-sqftsvx!z1==q%x-skage&(u3xff#_821)%pq(m&)@64v@6h0*"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 
 ALLOWED_HOSTS = []
+CORS_ALLOW_ALL_ORIGINS = True  # For development purposes only
 
 
 # Application definition
@@ -45,6 +49,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "ninja_extra",
     "ninja_jwt",
+    "corsheaders",
     "exercises",
     "training",
     "users",
@@ -58,6 +63,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    # DEV
     "querycount.middleware.QueryCountMiddleware",
 ]
 

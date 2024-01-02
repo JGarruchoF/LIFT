@@ -2,7 +2,7 @@ import { RouteRecordRaw } from "vue-router";
 
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 
-import MainView from "./common/views/MainView.vue";
+import MainView from "@/views/MainView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,11 +19,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: "home",
-        component: () => import("./common/views/HomeView.vue"),
+        component: () => import("@/views/HomeView.vue"),
       },
       {
-        path: "radio",
-        // component: () => import('./views/RadioPage.vue'),
+        path: "training",
+        component: () => import("@/modules/training/views/TrainingView.vue"),
       },
       {
         path: "library",

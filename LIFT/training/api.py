@@ -1,21 +1,20 @@
 from typing import List
 
+from base.schemas import ErrorSchema
 from django.shortcuts import get_object_or_404
-
-from ninja import Router, Query
-from ninja.pagination import paginate, LimitOffsetPagination
+from exercises.models import Exercise
+from ninja import Query, Router
+from ninja.pagination import LimitOffsetPagination, paginate
 from ninja_jwt.authentication import JWTAuth
 
-from base.schemas import ErrorSchema
-from exercises.models import Exercise
 from training.filters import TrainingSessionFilterSchema
-from training.models import TrainingSession, ExerciseSession, Set
+from training.models import ExerciseSession, Set, TrainingSession
 from training.schemas import (
-    ListTrainingSessionSchema,
-    TrainingSessionSchema,
     ExerciseSessionSchema,
+    ListTrainingSessionSchema,
     SetSchema,
     SetSchemaPatch,
+    TrainingSessionSchema,
 )
 
 router = Router(auth=JWTAuth())

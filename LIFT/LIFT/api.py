@@ -10,5 +10,3 @@ api.register_controllers(NinjaJWTDefaultController)
 
 api.add_router("/", exercises_router)
 api.add_router("/trainings", training_router)
-
-print("hola")
